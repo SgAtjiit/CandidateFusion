@@ -1,0 +1,83 @@
+{
+  "profile": {
+    "name": "Dr. Sarah Connor",
+    "name_confidence": 0.7,
+    "name_provenance": {
+      "source": "ats",
+      "method": "priority_override"
+    },
+    "experience": 12,
+    "experience_confidence": 0.85,
+    "experience_provenance": {
+      "source": "ats",
+      "method": "single_source"
+    },
+    "location_details": {
+      "city": null,
+      "region": null,
+      "country": null
+    },
+    "location_details_confidence": 0.6,
+    "skills": [
+      "Python",
+      "Rust",
+      "Go",
+      "Kubernetes",
+      "AWS"
+    ],
+    "skills_confidence": [
+      0.95,
+      0.95,
+      0.95,
+      0.95,
+      0.95
+    ],
+    "skills_provenance": {
+      "source": "merged",
+      "method": "array_union"
+    }
+  },
+  "overall_confidence": 0.81,
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "ats",
+      "method": "priority_override"
+    },
+    {
+      "field": "headline",
+      "source": "ats",
+      "method": "single_source"
+    },
+    {
+      "field": "years_experience",
+      "source": "ats",
+      "method": "single_source"
+    },
+    {
+      "field": "emails",
+      "source": "merged",
+      "method": "agreement"
+    },
+    {
+      "field": "phones",
+      "source": "merged",
+      "method": "agreement"
+    },
+    {
+      "field": "skills",
+      "source": "merged",
+      "method": "array_union"
+    },
+    {
+      "field": "experience",
+      "source": "merged",
+      "method": "array_union"
+    },
+    {
+      "field": "education",
+      "source": "merged",
+      "method": "array_union"
+    }
+  ]
+}

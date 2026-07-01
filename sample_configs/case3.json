@@ -1,0 +1,9 @@
+{
+  "fields": [
+    { "path": "candidate_name", "from": "full_name", "type": "string" },
+    { "path": "skills_list", "from": "skills[].name", "type": "string[]" },
+    { "path": "backup_phone", "from": "phones[0]", "type": "string" }
+  ],
+  "include_confidence": true,
+  "on_missing": "null"
+}

@@ -1,0 +1,11 @@
+{
+  "fields": [
+    { "path": "name", "from": "full_name", "type": "string", "required": true },
+    { "path": "email", "from": "emails[0]", "type": "string", "required": true },
+    { "path": "git_profile", "from": "links.github", "type": "string" },
+    { "path": "li_profile", "from": "links.linkedin", "type": "string" },
+    { "path": "top_skills", "from": "skills[].name", "type": "string[]" }
+  ],
+  "include_confidence": false,
+  "on_missing": "null"
+}

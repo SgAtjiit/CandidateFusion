@@ -1,0 +1,9 @@
+{
+  "fullname": "John Smith",
+  "email": "john.smith@webdev.co",
+  "phone": "+44 7700 900077",
+  "techstack": "reactjs, typescript, css3, html5",
+  "headline": "UI Specialist and Frontend Guru",
+  "location": "London, UK",
+  "socials": ["https://github.com/johnsmith", "https://linkedin.com/in/johnsmith"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Avery Jenkins",
+  "email": "ajenkins@uni.edu",
+  "skills": ["Java", "html", "CSS"],
+  "yoe": 0.5,
+  "currentcompany": "University of Tech",
+  "title": "Student Intern",
+  "workhistory": [
+    {
+      "company": "Tech Labs",
+      "title": "Intern",
+      "start": "June 2025",
+      "end": "Aug 2025"
+    }
+  ],
+  "academics": [
+    {
+      "institution": "University of Tech",
+      "degree": "B.S. Computer Science",
+      "end_year": 2026
+    }
+  ]
+}

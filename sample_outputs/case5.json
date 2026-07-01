@@ -1,0 +1,117 @@
+{
+  "candidate": {
+    "name": "Avery Jenkins",
+    "name_confidence": 0.95,
+    "name_provenance": {
+      "source": "merged",
+      "method": "agreement"
+    },
+    "email": "ajenkins@uni.edu",
+    "email_confidence": 0.95,
+    "email_provenance": {
+      "source": "merged",
+      "method": "agreement"
+    },
+    "skills": [
+      "Java",
+      "HTML",
+      "CSS",
+      "Git",
+      "SQL",
+      "Basic Javascript",
+      "Leadership & Activities",
+      "Member",
+      "Volunteer"
+    ],
+    "skills_confidence": [
+      0.95,
+      0.95,
+      0.95,
+      0.95,
+      0.95,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "skills_provenance": {
+      "source": "merged",
+      "method": "array_union"
+    },
+    "experience": [
+      {
+        "company": "Tech Labs",
+        "title": "Intern",
+        "start": "2025-06",
+        "end": "2025-08",
+        "summary": null
+      }
+    ],
+    "experience_confidence": 0.85,
+    "experience_provenance": {
+      "source": "merged",
+      "method": "array_union"
+    },
+    "education": [
+      {
+        "institution": "University of Tech",
+        "degree": "B.S. Computer Science",
+        "field": null,
+        "end_year": 2026
+      }
+    ],
+    "education_confidence": 0.85,
+    "education_provenance": {
+      "source": "merged",
+      "method": "array_union"
+    }
+  },
+  "overall_confidence": 0.83,
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "merged",
+      "method": "agreement"
+    },
+    {
+      "field": "years_experience",
+      "source": "ats",
+      "method": "single_source"
+    },
+    {
+      "field": "current_company",
+      "source": "ats",
+      "method": "single_source"
+    },
+    {
+      "field": "title",
+      "source": "ats",
+      "method": "single_source"
+    },
+    {
+      "field": "emails",
+      "source": "merged",
+      "method": "agreement"
+    },
+    {
+      "field": "phones",
+      "source": "resume",
+      "method": "single_source"
+    },
+    {
+      "field": "skills",
+      "source": "merged",
+      "method": "array_union"
+    },
+    {
+      "field": "experience",
+      "source": "merged",
+      "method": "array_union"
+    },
+    {
+      "field": "education",
+      "source": "merged",
+      "method": "array_union"
+    }
+  ]
+}

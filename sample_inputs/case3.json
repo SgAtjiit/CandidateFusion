@@ -1,0 +1,7 @@
+{
+  "name": "Alex Mercer",
+  "email": "alex.m@lab.net",
+  "skills": ["python", "js", "AWS"],
+  "unknown_field_xyz": "some values",
+  "another_custom_field": 42
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CandidateFusion - Multi-Source Candidate Data Transformer</title>
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="simple-container">
+    <header class="simple-header">
+      <div class="logo">
+        <i class="fa-solid fa-code-merge logo-icon"></i>
+        <h1>CandidateFusion <span class="logo-accent"></span></h1>
+      </div>
+      <p class="tagline">Multi-Source Candidate Data Transformer</p>
+    </header>
+
+    <!-- Unified Form Grid -->
+    <main class="simple-form-card glass-card">
+      <div class="input-grid">
+
+        <!-- Column 1: Uploads & Text Inputs -->
+        <div class="flex-column gap-md">
+          <!-- Resume Upload -->
+          <div class="form-group">
+            <label class="form-label"><i class="fa-regular fa-file-pdf"></i> Resume File (PDF/DOCX)</label>
+            <div id="drop-zone" class="drop-zone-mini">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span id="upload-status">Choose file or drag here</span>
+              <input type="file" id="file-input" accept=".pdf,.docx" class="hidden">
+            </div>
+          </div>
+
+          <!-- ATS JSON Text Input -->
+          <div class="form-group flex-grow">
+            <label for="ats-json-input" class="form-label"><i class="fa-regular fa-file-code"></i> ATS JSON
+              Input</label>
+            <textarea id="ats-json-input" class="code-editor" placeholder="Paste ATS JSON here..."></textarea>
+          </div>
+        </div>
+
+        <!-- Column 2: Output Config -->
+        <div class="flex-column gap-md">
+          <div class="form-group flex-grow">
+            <label for="projection-config" class="form-label"><i class="fa-solid fa-sliders"></i> Projection Config
+              JSON</label>
+            <textarea id="projection-config" class="code-editor"
+              placeholder="Paste Projection Config JSON..."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Button -->
+      <div class="action-row flex-row gap-md" style="display: flex; gap: 16px; margin-top: 16px;">
+        <button id="btn-load-sample" class="btn" style="background: rgba(99, 102, 241, 0.15); border: 1px dashed #6366f1; color: #a5b4fc; width: 180px; height: 50px;">
+          <i class="fa-solid fa-cloud-arrow-down"></i> Load Demo
+        </button>
+        <button id="btn-reset" class="btn" style="background: rgba(239, 68, 68, 0.15); border: 1px dashed #ef4444; color: #fca5a5; width: 140px; height: 50px;">
+          <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+        </button>
+        <button id="btn-process" class="btn btn-primary" style="flex-grow: 1; margin: 0; height: 50px;">
+          <i class="fa-solid fa-play"></i> Process &amp; Project
+        </button>
+      </div>
+    </main>
+
+    <!-- Results Panel (Hidden by default, shown when process completes) -->
+    <section id="results-panel" class="results-container hidden">
+
+      <!-- Candidate Selector Bar -->
+      <div id="candidate-selector-bar" class="glass-card flex-row gap-md flex-center"
+        style="padding: 12px 20px; align-items: center;">
+        <label for="active-candidate-select" class="form-label" style="margin: 0; white-space: nowrap;"><i
+            class="fa-solid fa-user-check"></i> Inspect Unified Candidate:</label>
+        <select id="active-candidate-select" class="code-editor"
+          style="height: 38px; width: 300px; padding: 6px 12px; margin: 0; color: #6366f1; font-weight: 600;"></select>
+      </div>
+
+      <!-- Canonical Metadata / Warnings Alert (if any) -->
+      <div id="warnings-card" class="warning-alert-card hidden">
+        <div class="warning-header">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <h3>Pipeline Diagnostics &amp; Unmapped Fields</h3>
+        </div>
+        <ul id="warnings-list" class="warnings-list"></ul>
+      </div>
+
+      <!-- Output Panels Grid -->
+      <div class="results-grid">
+        <!-- Raw Output JSON -->
+        <div class="glass-card">
+          <div class="card-header">
+            <i class="fa-solid fa-align-left card-icon info-color"></i>
+            <h2>Raw Output JSON</h2>
+          </div>
+          <div class="card-body">
+            <textarea id="output-raw" class="raw-json-textarea" readonly></textarea>
+          </div>
+        </div>
+
+        <!-- Formatted Output JSON -->
+        <div class="glass-card">
+          <div class="card-header">
+            <i class="fa-solid fa-code card-icon success-color"></i>
+            <h2>Formatted JSON Output</h2>
+          </div>
+          <div class="card-body">
+            <pre id="output-formatted" class="code-output">Processing results will appear here...</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beautiful Visual Card Output ("once properly") -->
+      <div class="glass-card margin-top-lg">
+        <div class="card-header">
+          <i class="fa-solid fa-address-card card-icon primary-color"></i>
+          <h2>Proper Profile Presentation</h2>
+        </div>
+        <div class="card-body">
+          <div class="profile-header-strip">
+            <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="profile-title-block">
+              <h2 id="profile-name">Name</h2>
+              <p id="profile-title" class="sub-text">Title</p>
+            </div>
+          </div>
+          <div class="profile-contact-strip flex-row gap-lg">
+            <span id="profile-email"><i class="fa-regular fa-envelope"></i> Email</span>
+            <span id="profile-phone"><i class="fa-solid fa-phone"></i> Phone</span>
+            <span id="profile-location"><i class="fa-solid fa-location-dot"></i> Location</span>
+          </div>
+          <div id="profile-skills-block" class="skills-block margin-top-md">
+            <h3>Canonical Skills:</h3>
+            <div id="profile-skills" class="skills-container margin-top-sm"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

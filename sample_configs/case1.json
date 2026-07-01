@@ -1,0 +1,11 @@
+{
+  "fields": [
+    { "path": "fullname", "from": "full_name", "type": "string", "required": true },
+    { "path": "contact.email", "from": "emails[0]", "type": "string", "required": true },
+    { "path": "contact.phone", "from": "phones[0]", "type": "string", "normalize": "E164" },
+    { "path": "experience_years", "from": "years_experience", "type": "number" },
+    { "path": "tech_skills", "from": "skills[].name", "type": "string[]" }
+  ],
+  "include_confidence": true,
+  "on_missing": "null"
+}

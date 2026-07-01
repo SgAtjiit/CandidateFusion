@@ -1,0 +1,10 @@
+{
+  "fields": [
+    { "path": "profile.name", "from": "full_name", "type": "string", "required": true },
+    { "path": "profile.experience", "from": "years_experience", "type": "number" },
+    { "path": "profile.location_details", "from": "location", "type": "object" },
+    { "path": "profile.skills", "from": "skills[].name", "type": "string[]" }
+  ],
+  "include_confidence": true,
+  "on_missing": "null"
+}

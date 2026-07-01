@@ -1,0 +1,11 @@
+{
+  "fields": [
+    { "path": "candidate.name", "from": "full_name", "type": "string", "required": true },
+    { "path": "candidate.email", "from": "emails[0]", "type": "string", "required": true },
+    { "path": "candidate.skills", "from": "skills[].name", "type": "string[]" },
+    { "path": "candidate.experience", "from": "experience", "type": "object[]" },
+    { "path": "candidate.education", "from": "education", "type": "object[]" }
+  ],
+  "include_confidence": true,
+  "on_missing": "omit"
+}

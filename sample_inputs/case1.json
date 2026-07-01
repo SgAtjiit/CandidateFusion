@@ -1,0 +1,10 @@
+{
+  "name": "Jane Doe",
+  "emails": "jane.doe@example.com",
+  "phones": "+1-555-0199",
+  "skills": ["Go", "kubernetes", "Docker", "postgres"],
+  "curr_company": "CloudTech Inc.",
+  "title": "Senior Backend Engineer",
+  "yoe": 6.5,
+  "location": "San Francisco, CA, USA"
+}

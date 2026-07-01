@@ -1,0 +1,9 @@
+{
+  "fullname": "Dr. Sarah Connor",
+  "email": "sconnor@resistance.net",
+  "phones": "+1 800 555 0100",
+  "skills": ["Python", "Rust", "Go"],
+  "location": "Remote",
+  "yoe": 12,
+  "headline": "Specialist in autonomous intelligence systems"
+}
