@@ -4,7 +4,6 @@ A robust, 100% deterministic, and explainable data-transformer engine built for 
 
 
 
-
 ## 🚀 How to Run
 
 ### 1. Prerequisites
@@ -223,3 +222,16 @@ The projection engine operates dynamically at runtime. It takes the canonical ca
 - **Third-Party Geocoding API**: We descoped third-party geocoding services (such as Google Maps or GeoNames APIs) in favor of a static, localized lookup map of major tech hubs and ISO country codes. This eliminates network round-trips, avoids API key requirements, and ensures offline execution safety.
 - **Graph-Based/Fuzzy Identity Resolution**: We descoped complex graph-clustering or probabilistic record-linkage models for matching identities. Instead, we use a deterministic cascading resolution pipeline (matching sequentially on Candidate ID, email array intersection, phone array intersection, and exact name match). This provides completely predictable candidate clusters and makes false-merge bugs trivial to audit and resolve.
 
+
+## 🎥 Project Demo Video
+
+Experience **CandidateFusion** in action! The demo video walks through the multi-source candidate ingestion, identity resolution, dynamic projection schema configs, and the interactive dashboard.
+
+### 📺 Watch the Demo
+* **Direct Link**: [Download / Watch Demo Video](public/Other%20deliverables/demo%20video.mp4)
+
+If your Markdown renderer supports HTML5 video, you can play it directly below:
+
+<video src="public/Other%20deliverables/demo%20video.mp4" width="100%" height="auto" controls>
+  Your browser does not support the video tag. You can view the video at <a href="public/Other%20deliverables/demo%20video.mp4">public/Other deliverables/demo video.mp4</a>.
+</video>
